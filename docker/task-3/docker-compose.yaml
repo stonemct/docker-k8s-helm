@@ -34,6 +34,11 @@ services:
       - "8001:80"
     volumes:
       - ./appsettings.json:/etc/config/appsettings.json:ro
+  analysis:
+    image: "dnatrack/web/analysis"
+    restart: always
+    volumes:
+      - ./appsettings.json:/etc/config/appsettings.json:ro
 
 #networks
 #volumes
