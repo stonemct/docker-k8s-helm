@@ -1,20 +1,18 @@
-apiVersion: v1
-#kind:
+apiVersion: apps/v1beta2
 kind: Deployment
 metadata:
-  name: hello-deployment
-  labels:
-    app: hell-app
+  name: hell-deployment
 spec:
-  replicas: 2
+  replicas: 5
   selector:
-    mathLabels:
+    matchLabels:
       app: hell-app
   template:
     metadata:
       labels:
         app: hell-app
-  containers:
-  - name: hell-app
-    image: busybox
-    command: ['sh', '-c', 'echo Hello Kubernetes! && sleep 3600']
+    spec:
+      containers:
+      - name: hell-app
+        image: busybox
+        command: ['sh', '-c', 'echo Hello, welcome to hell! && sleep 3600']
