@@ -4,7 +4,7 @@ metadata:
   name: mongo
 spec:
   ports:
-    - port: 5672
+    - port: 27017
   selector:
     app: mongo-app
 ---
@@ -30,7 +30,6 @@ spec:
           imagePullPolicy: Always
           image: "mongo:4.0.5"
           ports:
-          - name: mongotcp
+          - name: mongo
             containerPort: 27017
             protocol: TCP
-          env:
