@@ -11,11 +11,11 @@ spec:
 apiVersion: apps/v1
 kind: Deployment
 metadata:
-  name: dnatrack-web-admin
+  name: web-admin
   labels:
     app: admin
 spec:
-  replicas: 2
+  replicas: 1
   selector:
     matchLabels:
       app: web-admin
@@ -39,7 +39,8 @@ spec:
             protocol: TCP
           env:
           - name: BasePath
-            value: "/demo/admin"
+#            value: "/{NAMESPACE}/admin"
+            value: "/s-43/admin"
           volumeMounts:
           - name: app-config
             mountPath: /etc/config

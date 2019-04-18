@@ -39,7 +39,8 @@ spec:
             protocol: TCP
           env:
           - name: BasePath
-            value: "/{NAMESPACE}/admin"
+#            value: "/{NAMESPACE}/admin"
+            value: "/s-43/admin"
           volumeMounts:
           - name: app-config
             mountPath: /etc/config

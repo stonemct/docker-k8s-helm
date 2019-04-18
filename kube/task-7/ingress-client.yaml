@@ -1,16 +1,16 @@
 apiVersion: extensions/v1beta1
 kind: Ingress
 metadata:
-  name: demo-client-ingress
+  name: client-ingress
   annotations:
     kubernetes.io/ingress.class: nginx
-    nginx.ingress.kubernetes.io/rewrite-target: /demo/client
+    nginx.ingress.kubernetes.io/rewrite-target: /s-43/client
 spec:
   rules:
   - host: hel.westeurope.cloudapp.azure.com
     http:
       paths:
-      - path: /demo/client
+      - path: /s-43/client
         backend:
           serviceName: web-client
           servicePort: 80
