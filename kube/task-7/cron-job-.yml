@@ -12,4 +12,11 @@ spec:
           - name: validator
             image: arukim/dnatrack-job-validator:v1
     #        command: ["perl",  "-Mbignum=bpi", "-wle", "print bpi(2000)"]
+            volumeMounts:
+                - name: app-config
+                  mountPath: /etc/config
+          volumes:
+              - name: app-config
+                configMap:
+                  name: app
           restartPolicy: OnFailure
