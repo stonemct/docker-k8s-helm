@@ -1,16 +1,15 @@
 apiVersion: batch/v1beta1
 kind: CronJob
 metadata:
-  name: cron-validator
+  name: validator
 spec:
-  schedule: "*/1 * * * *"
+  schedule: "*/30 * * * *"
   jobTemplate:
     spec:
       template:
         spec:
           containers:
-          - name: cron-validator
+          - name: validator
             image: arukim/dnatrack-job-validator:v1
     #        command: ["perl",  "-Mbignum=bpi", "-wle", "print bpi(2000)"]
           restartPolicy: OnFailure
-      backoffLimit: 4
