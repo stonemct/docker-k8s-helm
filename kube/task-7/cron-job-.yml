@@ -10,8 +10,8 @@ spec:
         spec:
           containers:
           - name: validator
+            imagePullPolicy: Always
             image: arukim/dnatrack-job-validator:v1
-    #        command: ["perl",  "-Mbignum=bpi", "-wle", "print bpi(2000)"]
             volumeMounts:
                 - name: app-config
                   mountPath: /etc/config
@@ -19,4 +19,4 @@ spec:
               - name: app-config
                 configMap:
                   name: app
-          restartPolicy: OnFailure
+          restartPolicy: Never
